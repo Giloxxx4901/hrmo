@@ -3238,8 +3238,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100dvh;
-      height: 100dvh;
+      width: 100dvw;
+      height: 100vh;
       background: rgba(240, 244, 248, 0.45);
       /* Light frosted tint */
       backdrop-filter: blur(30px);
@@ -3656,6 +3656,281 @@
 
       .details-line {
         width: 25px;
+      }
+    }
+
+
+    /* ============================================================
+       CREDITS MODAL — MOBILE-FRIENDLY FULL-SCREEN VIEW
+       Keeps one large active portrait, side previews, name, role,
+       dots, and footer inside the first phone viewport.
+    ============================================================ */
+    @media (max-width: 600px) {
+      .credits-modal-v5 {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        max-width: 100vw;
+        height: 100dvh;
+        min-height: 100dvh;
+        padding: 12px 0 10px;
+        overflow: hidden;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overscroll-behavior: none;
+        background: linear-gradient(to bottom,
+            #89ace9 0%,
+            #eef4fb 17%,
+            #f8fafc 64%,
+            #7299e2 100%);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
+      .credits-v5-container {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: none;
+        min-width: 0;
+        padding: 8px 0 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .credits-v5-close {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+        z-index: 10010;
+      }
+
+      .credits-v5-header {
+        width: 100%;
+        height: 86px;
+        flex: 0 0 86px;
+        margin: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .credits-v5-header img {
+        width: 58px;
+        height: 58px;
+        margin: 7px 0 0;
+        object-fit: contain;
+      }
+
+      .credits-v5-header h3,
+      .credits-v5-header p {
+        display: none;
+      }
+
+      .credits-carousel-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 100vw;
+        height: min(52vh, 500px);
+        min-height: 350px;
+        max-height: 500px;
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 900px;
+        transform-style: preserve-3d;
+        touch-action: pan-y;
+        overscroll-behavior-x: contain;
+      }
+
+      .credits-carousel-track {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+        touch-action: pan-y;
+      }
+
+      .credit-carousel-card {
+        position: absolute;
+        width: min(52vw, 300px);
+        height: min(43vh, 420px);
+        min-width: 215px;
+        min-height: 310px;
+        max-width: 300px;
+        max-height: 420px;
+        border-radius: 28px;
+        border: 4px solid rgba(255, 255, 255, 0.94);
+        overflow: hidden;
+        background: #fff;
+        transform-origin: center center;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transition:
+          transform 0.42s cubic-bezier(.22, .8, .25, 1),
+          opacity 0.35s ease,
+          filter 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .credit-carousel-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .carousel-bg-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 140%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(4rem, 22vw, 7rem);
+        line-height: 1;
+        letter-spacing: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        opacity: 0.08;
+        pointer-events: none;
+      }
+
+      .carousel-arrow {
+        display: none;
+      }
+
+      .credits-details-section {
+        width: 100%;
+        min-height: 66px;
+        flex: 0 0 auto;
+        margin: 10px 0 0;
+        padding: 0 18px;
+        text-align: center;
+      }
+
+      #activeCreditName {
+        width: 100%;
+        margin: 0;
+        color: #264f94;
+        font-size: clamp(1.45rem, 6vw, 2rem);
+        line-height: 1.15;
+        font-weight: 800;
+        white-space: normal;
+      }
+
+      #activeCreditRole {
+        width: 100%;
+        margin: 10px 0 0;
+        color: #008b64;
+        font-size: 0.82rem;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: 2.6px;
+        text-transform: uppercase;
+      }
+
+      .credits-carousel-dots {
+        min-height: 24px;
+        flex: 0 0 24px;
+        margin: 8px 0 0;
+        gap: 9px;
+        flex-wrap: nowrap;
+      }
+
+      .credits-dot {
+        width: 10px;
+        height: 10px;
+        flex: 0 0 10px;
+      }
+
+      .credits-dot.active {
+        width: 15px;
+        height: 15px;
+        flex-basis: 15px;
+      }
+
+      .credits-v5-footer {
+        width: 100%;
+        flex: 0 0 auto;
+        margin-top: auto;
+        padding: 8px 12px 3px;
+        border: 0;
+      }
+
+      .credits-v5-footer p {
+        margin: 0 0 6px;
+        color: rgba(35, 66, 122, 0.86);
+        font-size: 0.78rem;
+      }
+
+      .credits-v5-footer span {
+        color: #274d8d;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+      }
+    }
+
+    @media (max-width: 380px),
+    (max-height: 720px) and (max-width: 600px) {
+      .credits-v5-header {
+        height: 68px;
+        flex-basis: 68px;
+      }
+
+      .credits-v5-header img {
+        width: 48px;
+        height: 48px;
+        margin-top: 4px;
+      }
+
+      .credits-carousel-wrapper {
+        height: min(48vh, 360px);
+        min-height: 290px;
+      }
+
+      .credit-carousel-card {
+        width: 52vw;
+        height: min(38vh, 320px);
+        min-width: 185px;
+        min-height: 260px;
+      }
+
+      .credits-details-section {
+        min-height: 58px;
+        margin-top: 6px;
+      }
+
+      #activeCreditName {
+        font-size: 1.25rem;
+      }
+
+      #activeCreditRole {
+        margin-top: 6px;
+        font-size: 0.72rem;
+      }
+
+      .credits-carousel-dots {
+        margin-top: 5px;
+      }
+
+      .credits-v5-footer {
+        padding-top: 4px;
       }
     }
   </style>
@@ -6417,32 +6692,55 @@
           dotsContainer.appendChild(dot);
         });
 
-        // Touch Gestures for mobile/tablet swipe
+        // Mobile swipe: move the carousel only, not the whole modal/page
         let startX = 0;
+        let startY = 0;
         let isDragging = false;
+        let swipeLocked = false;
 
         track.addEventListener('touchstart', (e) => {
+          if (!e.touches.length || swipeLocked) return;
           startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
           isDragging = true;
         }, { passive: true });
 
         track.addEventListener('touchmove', (e) => {
-          if (!isDragging) return;
-          const currentX = e.touches[0].clientX;
-          const diffX = startX - currentX;
-          if (Math.abs(diffX) > 50) {
-            if (diffX > 0) {
-              nextCredit();
-            } else {
-              prevCredit();
-            }
-            isDragging = false;
+          if (!isDragging || !e.touches.length) return;
+
+          const diffX = startX - e.touches[0].clientX;
+          const diffY = startY - e.touches[0].clientY;
+
+          // Prevent horizontal browser/page dragging while keeping vertical gestures usable.
+          if (Math.abs(diffX) > Math.abs(diffY)) {
+            e.preventDefault();
           }
+        }, { passive: false });
+
+        track.addEventListener('touchend', (e) => {
+          if (!isDragging || swipeLocked || !e.changedTouches.length) {
+            isDragging = false;
+            return;
+          }
+
+          const diffX = startX - e.changedTouches[0].clientX;
+          const diffY = startY - e.changedTouches[0].clientY;
+          isDragging = false;
+
+          if (Math.abs(diffX) < 45 || Math.abs(diffX) <= Math.abs(diffY)) return;
+
+          swipeLocked = true;
+          diffX > 0 ? nextCredit() : prevCredit();
+
+          setTimeout(() => {
+            swipeLocked = false;
+          }, 430);
         }, { passive: true });
 
-        track.addEventListener('touchend', () => {
+        track.addEventListener('touchcancel', () => {
           isDragging = false;
-        });
+          swipeLocked = false;
+        }, { passive: true });
 
         // Mouse dragging/swiping support for desktops
         track.addEventListener('mousedown', (e) => {
@@ -6483,6 +6781,13 @@
           }
         });
 
+        window.addEventListener('resize', () => {
+          const modal = document.getElementById('creditsModal');
+          if (modal && modal.classList.contains('active')) {
+            updateCreditsCarousel();
+          }
+        });
+
         isCreditsCarouselInitialized = true;
       }
 
@@ -6510,34 +6815,45 @@
           card.classList.remove('active', 'side', 'hidden');
 
           // Scale and coordinates depending on screen sizes
-          let translateCoefficient = window.innerWidth <= 768 ? 105 : 150;
-          let scaleCoefficient = 0.85;
-          let rotateCoefficient = 20;
+          const isPhone = window.innerWidth <= 600;
+          const translateCoefficient = isPhone
+            ? Math.min(window.innerWidth * 0.39, 215)
+            : window.innerWidth <= 768 ? 105 : 150;
+          const scaleCoefficient = isPhone ? 0.78 : 0.85;
+          const rotateCoefficient = isPhone ? 5 : 20;
 
           if (diff === 0) {
             card.classList.add('active');
-            card.style.transform = `translate3d(0, 0, 100px) scale(1.1)`;
+            card.style.transform = isPhone
+              ? `translate3d(0, 0, 80px) scale(1)`
+              : `translate3d(0, 0, 100px) scale(1.1)`;
             card.style.opacity = '1';
             card.style.filter = 'none';
             card.style.zIndex = '10';
             card.style.pointerEvents = 'auto';
           } else if (Math.abs(diff) === 1) {
             card.classList.add('side');
-            card.style.transform = `translate3d(${diff * translateCoefficient}px, 0, 0px) scale(${scaleCoefficient}) rotateY(${-diff * rotateCoefficient}deg)`;
+            card.style.transform = isPhone
+              ? `translate3d(${diff * translateCoefficient}px, 8px, 0) scale(${scaleCoefficient})`
+              : `translate3d(${diff * translateCoefficient}px, 0, 0px) scale(${scaleCoefficient}) rotateY(${-diff * rotateCoefficient}deg)`;
             card.style.opacity = '0.65';
             card.style.filter = 'grayscale(100%)';
             card.style.zIndex = '5';
             card.style.pointerEvents = 'auto';
           } else if (Math.abs(diff) === 2) {
             card.classList.add('side');
-            card.style.transform = `translate3d(${diff * (translateCoefficient * 1.65)}px, 0, -100px) scale(${scaleCoefficient * scaleCoefficient}) rotateY(${-diff * (rotateCoefficient * 1.5)}deg)`;
+            card.style.transform = isPhone
+              ? `translate3d(${diff * (translateCoefficient * 1.7)}px, 10px, -100px) scale(${scaleCoefficient * scaleCoefficient})`
+              : `translate3d(${diff * (translateCoefficient * 1.65)}px, 0, -100px) scale(${scaleCoefficient * scaleCoefficient}) rotateY(${-diff * (rotateCoefficient * 1.5)}deg)`;
             card.style.opacity = '0.35';
             card.style.filter = 'grayscale(100%)';
             card.style.zIndex = '3';
             card.style.pointerEvents = 'none';
           } else {
             card.classList.add('hidden');
-            card.style.transform = `translate3d(${diff * (translateCoefficient * 2.2)}px, 0, -200px) scale(${scaleCoefficient * scaleCoefficient * scaleCoefficient}) rotateY(${-diff * (rotateCoefficient * 2)}deg)`;
+            card.style.transform = isPhone
+              ? `translate3d(${diff * (translateCoefficient * 2.2)}px, 10px, -200px) scale(${scaleCoefficient * scaleCoefficient * scaleCoefficient})`
+              : `translate3d(${diff * (translateCoefficient * 2.2)}px, 0, -200px) scale(${scaleCoefficient * scaleCoefficient * scaleCoefficient}) rotateY(${-diff * (rotateCoefficient * 2)}deg)`;
             card.style.opacity = '0';
             card.style.filter = 'grayscale(100%)';
             card.style.zIndex = '1';
