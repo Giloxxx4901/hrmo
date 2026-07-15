@@ -2822,16 +2822,16 @@
         grid-template-columns: 1fr;
       }
     }
-  
+
 
     /* ===== MOBILE RESPONSIVE UPGRADE ===== */
     .mobile-menu-btn {
       display: none;
       width: 42px;
       height: 42px;
-      border: 1px solid rgba(255,255,255,.35);
+      border: 1px solid rgba(255, 255, 255, .35);
       border-radius: 9px;
-      background: rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .12);
       color: #fff;
       align-items: center;
       justify-content: center;
@@ -2848,9 +2848,19 @@
         flex-wrap: nowrap;
       }
 
-      .brand-seal { width: 42px; height: 42px; }
-      .brand-name h1 { font-size: 18px; }
-      .mobile-menu-btn { display: inline-flex; margin-left: auto; }
+      .brand-seal {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-name h1 {
+        font-size: 18px;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
+        margin-left: auto;
+      }
 
       .topbar-nav {
         display: none;
@@ -2864,17 +2874,22 @@
         background: #fff;
         overflow-y: auto;
         z-index: 9998;
-        box-shadow: 0 14px 30px rgba(0,0,0,.18);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
         flex-direction: column;
         align-items: stretch;
         gap: 4px;
       }
 
-      .topbar-nav.mobile-open { display: flex; }
-      body.mobile-menu-open { overflow: hidden; }
+      .topbar-nav.mobile-open {
+        display: flex;
+      }
 
-      .topbar-nav > a,
-      .topbar-nav > .prime-dropdown > .prime-dropbtn {
+      body.mobile-menu-open {
+        overflow: hidden;
+      }
+
+      .topbar-nav>a,
+      .topbar-nav>.prime-dropdown>.prime-dropbtn {
         width: 100%;
         min-height: 46px;
         padding: 11px 12px !important;
@@ -2884,16 +2899,22 @@
         font-size: 14px;
       }
 
-      .topbar-nav > a:hover,
-      .topbar-nav > .prime-dropdown > .prime-dropbtn:hover {
+      .topbar-nav>a:hover,
+      .topbar-nav>.prime-dropdown>.prime-dropbtn:hover {
         background: var(--blue-light) !important;
         color: var(--blue-dark) !important;
         transform: none;
       }
 
-      .prime-dropdown { display: block; width: 100%; }
-      .prime-dropdown:hover > .prime-dropdown-menu,
-      .has-submenu:hover > .prime-submenu { display: none; }
+      .prime-dropdown {
+        display: block;
+        width: 100%;
+      }
+
+      .prime-dropdown:hover>.prime-dropdown-menu,
+      .has-submenu:hover>.prime-submenu {
+        display: none;
+      }
 
       .prime-dropdown-menu,
       .prime-submenu,
@@ -2908,9 +2929,11 @@
         background: #f7f9ff;
       }
 
-      .prime-dropdown.mobile-expanded > .prime-dropdown-menu,
-      .has-submenu.mobile-expanded > .prime-submenu,
-      .has-submenu.mobile-expanded > .prime-submenu-deep { display: block; }
+      .prime-dropdown.mobile-expanded>.prime-dropdown-menu,
+      .has-submenu.mobile-expanded>.prime-submenu,
+      .has-submenu.mobile-expanded>.prime-submenu-deep {
+        display: block;
+      }
 
       .prime-dropdown-menu a,
       .prime-submenu a {
@@ -2925,10 +2948,15 @@
         padding-left: 12px !important;
       }
 
-      .mobile-expanded > a > .ti-chevron-down,
-      .mobile-expanded > a > .ti-chevron-right { transform: rotate(90deg); }
+      .mobile-expanded>a>.ti-chevron-down,
+      .mobile-expanded>a>.ti-chevron-right {
+        transform: rotate(90deg);
+      }
 
-      .content { padding: 12px; }
+      .content {
+        padding: 12px;
+      }
+
       .landing-hero {
         width: calc(100% + 24px);
         margin-left: -12px;
@@ -2939,42 +2967,698 @@
         padding: 28px 18px;
         background-size: cover;
       }
-      .landing-copy h1 { font-size: clamp(29px, 10vw, 42px); }
-      .landing-copy h3 { font-size: 13px; line-height: 1.7; }
-      .landing-section-title { align-items: flex-start; }
-      .landing-section-title h2 { font-size: 21px; }
-      .quick-link-grid, .stats-grid, .grid-auto { grid-template-columns: 1fr; }
-      .activity-gallery { grid-template-columns: 1fr; }
-      .card, .page-hero { padding: 16px; }
-      .tabs { overflow-x: auto; white-space: nowrap; }
-      .tab { flex: 0 0 auto; }
-      .modal-overlay { padding: 10px; }
-      .modal-header, .modal-body { padding-left: 16px; padding-right: 16px; }
-      .modal-footer { padding-left: 16px; padding-right: 16px; flex-wrap: wrap; }
-      .modal-footer .btn { flex: 1; justify-content: center; }
-      .notif-panel { position: fixed; top: 70px; left: 12px; right: 12px; width: auto; }
-      .toast-container { left: 12px; right: 12px; bottom: 12px; }
-      .toast { min-width: 0; width: 100%; }
-      .detail-row { gap: 12px; }
-      .detail-lbl { min-width: 105px; }
-      .footer-container { padding: 0 16px; }
-      .govph-col { margin-left: 0; margin-right: 0; }
+
+      .landing-copy h1 {
+        font-size: clamp(29px, 10vw, 42px);
+      }
+
+      .landing-copy h3 {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .landing-section-title {
+        align-items: flex-start;
+      }
+
+      .landing-section-title h2 {
+        font-size: 21px;
+      }
+
+      .quick-link-grid,
+      .stats-grid,
+      .grid-auto {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .page-hero {
+        padding: 16px;
+      }
+
+      .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .tab {
+        flex: 0 0 auto;
+      }
+
+      .modal-overlay {
+        padding: 10px;
+      }
+
+      .modal-header,
+      .modal-body {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .modal-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+        flex-wrap: wrap;
+      }
+
+      .modal-footer .btn {
+        flex: 1;
+        justify-content: center;
+      }
+
+      .notif-panel {
+        position: fixed;
+        top: 70px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+      }
+
+      .toast-container {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .toast {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .detail-row {
+        gap: 12px;
+      }
+
+      .detail-lbl {
+        min-width: 105px;
+      }
+
+      .footer-container {
+        padding: 0 16px;
+      }
+
+      .govph-col {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
     @media (max-width: 480px) {
-      .brand-seal { width: 38px; height: 38px; }
-      .brand-name h1 { font-size: 17px; }
-      .landing-hero { min-height: 350px; }
-      .landing-copy h1 { font-size: 30px; }
-      .landing-section-title h2 { font-size: 20px; }
-      .news-carousel-container { padding: 0 10px; }
-      .news-nav { display: none; }
-      .news-card { min-width: 100%; }
-      .event-item { align-items: flex-start; }
-      .page-hero-actions, .quick-actions { flex-direction: column; }
-      .page-hero-actions .btn, .quick-actions .btn { width: 100%; justify-content: center; }
+      .brand-seal {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-name h1 {
+        font-size: 17px;
+      }
+
+      .landing-hero {
+        min-height: 350px;
+      }
+
+      .landing-copy h1 {
+        font-size: 30px;
+      }
+
+      .landing-section-title h2 {
+        font-size: 20px;
+      }
+
+      .news-carousel-container {
+        padding: 0 10px;
+      }
+
+      .news-nav {
+        display: none;
+      }
+
+      .news-card {
+        min-width: 100%;
+      }
+
+      .event-item {
+        align-items: flex-start;
+      }
+
+      .page-hero-actions,
+      .quick-actions {
+        flex-direction: column;
+      }
+
+      .page-hero-actions .btn,
+      .quick-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
-</style>
+
+
+    /* ===== MOBILE NEWS & UPDATES FIX ===== */
+    @media (max-width: 768px) {
+
+      .news-updates-section,
+      .news-updates-section .landing-section-title,
+      .news-updates-section .landing-section-title>div,
+      .news-updates-section .news-wrapper,
+      .news-updates-section .news-carousel-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .news-updates-section .landing-section-title {
+        display: block;
+      }
+
+      .news-updates-section .landing-section-title>div>span {
+        display: block;
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--text2);
+        margin-bottom: 14px;
+      }
+
+      .news-updates-section br {
+        display: none;
+      }
+
+      .news-updates-section .news-carousel-container {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .news-updates-section .news-carousel {
+        width: 100%;
+        gap: 12px;
+        padding: 4px 2px 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 2px;
+        overscroll-behavior-inline: contain;
+        touch-action: pan-x;
+      }
+
+      .news-updates-section .news-card {
+        flex: 0 0 calc(100% - 4px) !important;
+        width: calc(100% - 4px);
+        min-width: calc(100% - 4px) !important;
+        max-width: calc(100% - 4px);
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        border-radius: 14px;
+        transform: none !important;
+      }
+
+      .news-updates-section .news-image {
+        height: clamp(190px, 58vw, 250px);
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      .news-updates-section .news-content {
+        padding: 16px;
+      }
+
+      .news-updates-section .news-date {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .news-updates-section .news-content h4 {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        overflow-wrap: anywhere;
+      }
+
+      .news-updates-section .news-content p {
+        font-size: 13px;
+        line-height: 1.65;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        margin-bottom: 14px;
+      }
+
+      .news-updates-section .read-more {
+        width: 100%;
+        min-height: 44px;
+        justify-content: center;
+        border-radius: 9px;
+        font-size: 13px;
+        padding: 10px 14px;
+      }
+
+      .news-updates-section .news-nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .news-updates-section .news-image {
+        height: 180px;
+      }
+
+      .news-updates-section .news-content {
+        padding: 14px;
+      }
+
+      .news-updates-section .news-content h4 {
+        font-size: 15px;
+      }
+    }
+
+    /* ===== V5: Modern Floating Glass Credits Modal & 3D Carousel ===== */
+    .credits-modal-v5 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(240, 244, 248, 0.45);
+      /* Light frosted tint */
+      backdrop-filter: blur(30px);
+      /* Deep premium blur */
+      -webkit-backdrop-filter: blur(30px);
+      z-index: 10000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .credits-modal-v5.active {
+      display: flex;
+      animation: creditsV5FadeIn 0.4s ease forwards;
+    }
+
+    .credits-v5-container {
+      width: 100%;
+      max-width: 1100px;
+      position: relative;
+      text-align: center;
+      padding: 10px 0;
+      max-height: 98vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Hide scrollbar for a cleaner look but keep functionality */
+    .credits-v5-container::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    .credits-v5-close {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      color: #2a4889;
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 10001;
+    }
+
+    .credits-v5-close:hover {
+      background: #ef4444;
+      color: white;
+      transform: rotate(90deg) scale(1.1);
+      box-shadow: 0 15px 35px rgba(239, 68, 68, 0.3);
+    }
+
+    .credits-v5-header {
+      margin-bottom: 25px;
+      animation: slideDown 0.6s ease-out forwards;
+    }
+
+    .credits-v5-header img {
+      width: 65px;
+      height: auto;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.15));
+    }
+
+    .credits-v5-header h3 {
+      color: #2a4889;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 3px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .credits-v5-header p {
+      color: #0f7e6a;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* 3D Carousel Elements */
+    .credits-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      margin: 20px 0 0 0;
+      padding-bottom: 130px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      overflow: visible;
+      user-select: none;
+    }
+
+    .carousel-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      font-size: 7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 20px;
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+      color: rgba(42, 72, 137, 0.22);
+      z-index: 1;
+      font-family: 'Outfit', sans-serif;
+      text-align: center;
+    }
+
+    .credits-carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+      z-index: 2;
+    }
+
+    .credit-carousel-card {
+      position: absolute;
+      width: 250px;
+      height: 350px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        filter 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.6s ease;
+      cursor: pointer;
+      transform-origin: center center;
+      border: 4px solid #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .credit-carousel-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+      transition: transform 0.6s ease;
+    }
+
+    .credit-carousel-card.active img {
+      transform: scale(1.02);
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #2a4889;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(42, 72, 137, 0.25);
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 100;
+    }
+
+    .carousel-arrow:hover {
+      background: #6bc9c4;
+      box-shadow: 0 12px 25px rgba(107, 201, 196, 0.4);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-arrow:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .carousel-arrow.prev {
+      left: 40px;
+    }
+
+    .carousel-arrow.next {
+      right: 40px;
+    }
+
+    /* Details section below active card */
+    .credits-details-section {
+      margin-top: 20px;
+      text-align: center;
+      min-height: 80px;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    #activeCreditName {
+      color: #2a4889;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 0 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(42, 72, 137, 0.05);
+      text-align: center;
+      width: 100%;
+    }
+
+    #activeCreditRole {
+      color: #0f7e6a;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Dots navigation */
+    .credits-carousel-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .credits-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(42, 72, 137, 0.2);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .credits-dot.active {
+      background: #2a4889;
+      transform: scale(1.3);
+      width: 12px;
+      height: 12px;
+    }
+
+    .credits-v5-footer {
+      margin-top: 15px;
+      padding-bottom: 10px;
+      animation: fadeIn 1s ease 0.8s both;
+    }
+
+    .credits-v5-footer p {
+      color: #555;
+      font-size: 0.85rem;
+      margin-bottom: 3px;
+    }
+
+    .credits-v5-footer span {
+      color: #2a4889;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @keyframes creditsV5FadeIn {
+      from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+      }
+
+      to {
+        opacity: 1;
+        backdrop-filter: blur(30px);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .credit-carousel-card {
+        width: 200px;
+        height: 280px;
+      }
+
+      .carousel-arrow.prev {
+        left: 20px;
+      }
+
+      .carousel-arrow.next {
+        right: 20px;
+      }
+
+      .carousel-bg-text {
+        font-size: 6rem;
+        letter-spacing: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .credits-v5-close {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
+
+      .credits-carousel-wrapper {
+        height: 320px;
+      }
+
+      .credit-carousel-card {
+        width: 180px;
+        height: 250px;
+      }
+
+      .carousel-arrow {
+        width: 42px;
+        height: 42px;
+      }
+
+      .carousel-arrow.prev {
+        left: 10px;
+      }
+
+      .carousel-arrow.next {
+        right: 10px;
+      }
+
+      .carousel-bg-text {
+        font-size: 4rem;
+        letter-spacing: 6px;
+        top: 30%;
+      }
+
+      #activeCreditName {
+        font-size: 1.6rem;
+      }
+
+      .details-line {
+        width: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .credits-carousel-wrapper {
+        height: 280px;
+      }
+
+      .credit-carousel-card {
+        width: 150px;
+        height: 210px;
+      }
+
+      .carousel-arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+      .carousel-arrow.prev {
+        left: 5px;
+      }
+
+      .carousel-arrow.next {
+        right: 5px;
+      }
+
+      .carousel-bg-text {
+        font-size: 2.8rem;
+        letter-spacing: 4px;
+        top: 35%;
+      }
+
+      #activeCreditName {
+        font-size: 1.3rem;
+      }
+
+      .details-line {
+        width: 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -2994,7 +3678,8 @@
         </div>
 
       </a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation menu" aria-controls="topbarNav" aria-expanded="false">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation menu"
+        aria-controls="topbarNav" aria-expanded="false">
         <i class="ti ti-menu-2" aria-hidden="true"></i>
       </button>
       <nav class="topbar-nav" id="topbarNav">
@@ -3148,7 +3833,7 @@
         <br>
 
         <!-- ===== NEWS & ANNOUNCEMENTS SECTION ===== -->
-        <section class="landing-section">
+        <section class="landing-section news-updates-section">
           <div class="landing-section-title">
             <div>
               <h2>News & Updates</h2>
@@ -4429,11 +5114,115 @@
         </div>
         <div style="font-size: 0.5rem; color: #fff; text-align: center;">
           Designed by:
-          <a href="javascript:void(0)" onclick="openCreditsModal()"
+          <a href="#creditsModal" onclick="openCreditsModal(); return false;" aria-label="View CMO IT Team credits"
             style="color: #fff; text-decoration: none; font-weight: 600;">CMO - IT Team</a>
         </div>
       </div>
     </div>
+
+    <!-- Credits Modal - Modern Floating Glass -->
+    <div id="creditsModal" class="credits-modal-v5">
+      <div class="credits-v5-container">
+        <button class="credits-v5-close" onclick="closeCreditsModal()">×</button>
+
+        <div class="credits-v5-header">
+          <img src="https://calbayog.gov.ph/wp-content/uploads/2025/10/SPLASHSCREENCALBAYOGLOGO.png" alt="CMO Logo"
+            onerror="this.style.display='none'">
+          <h3></h3>
+          <p></p>
+        </div>
+
+        <div class="credits-carousel-wrapper">
+          <div class="carousel-bg-text">WEBDEV TEAM</div>
+
+          <button class="carousel-arrow prev" onclick="prevCredit()" aria-label="Previous Team Member">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-arrow next" onclick="nextCredit()" aria-label="Next Team Member">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <div class="credits-carousel-track" id="creditsCarouselTrack">
+            <!-- Member 1 -->
+            <div class="credit-carousel-card" onclick="selectCredit(0)" data-name="Rainier Gilo Villanueva"
+              data-role="Web Developer">
+              <img src="https://lh3.googleusercontent.com/d/1QsPmH-FPzLSKMesEwTMw0o6dx1jj2FxE"
+                alt="Rainer Gilo Villanueva">
+            </div>
+
+            <!-- Member 2 -->
+            <div class="credit-carousel-card" onclick="selectCredit(1)" data-name="Emmanuel Conarco"
+              data-role="Full Stack Developer">
+              <img src="https://lh3.googleusercontent.com/d/1s5vfq0GOT-Z6kpPi1Junw8b49qY1LE4P" alt="Emmanuel Conarco">
+            </div>
+
+            <!-- Member 3 -->
+            <div class="credit-carousel-card" onclick="selectCredit(2)" data-name="Mark James Tan"
+              data-role="UI/UX Designer">
+              <img src="https://lh3.googleusercontent.com/d/1Mu-Rg2poBEihQR3EZcSb-LFuETqQJdkh" alt="Mark James Tan">
+            </div>
+
+            <!-- Member 4 -->
+            <div class="credit-carousel-card" onclick="selectCredit(3)" data-name="Jaypee Planque"
+              data-role="Information Systems Analyst">
+              <img src="http://calbayog.gov.ph/wp-content/uploads/2026/07/jaypee.png" alt="Jaypee Planque">
+            </div>
+
+            <!-- Member 5 -->
+            <div class="credit-carousel-card" onclick="selectCredit(4)" data-name="Ruel Plaza"
+              data-role="Technical Lead">
+              <img src="https://lh3.googleusercontent.com/d/1XgJ2M_xkQv_TOF2g3zmyks3B361cV1he" alt="Ruel Plaza">
+            </div>
+
+            <!-- Member 6 -->
+            <div class="credit-carousel-card" onclick="selectCredit(5)" data-name="Kenowev Amores"
+              data-role="Database Admin">
+              <img src="https://lh3.googleusercontent.com/d/1JcSOdukd6689ciLktFoovxIjpRQPEsK_" alt="Kenowev Amores">
+            </div>
+
+            <!-- Member 7 -->
+            <div class="credit-carousel-card" onclick="selectCredit(6)" data-name="Jelyn Amores"
+              data-role="Data Analyst">
+              <img src="https://lh3.googleusercontent.com/d/1rUtZvusGVNP4U_AQhNx7lFNZ6UJSo472" alt="Jelyn Amores">
+            </div>
+
+            <!-- Member 8 -->
+            <div class="credit-carousel-card" onclick="selectCredit(7)" data-name="Yonjhel Calipayan"
+              data-role="QA Tester">
+              <img src="https://lh3.googleusercontent.com/d/1CuymWVXY5sGkVO6r79-d9qzAfZ3TTs0q" alt="Yonjhel Calipayan">
+            </div>
+
+            <!-- Member 9 -->
+            <div class="credit-carousel-card" onclick="selectCredit(8)" data-name="Francis Mark Mawo"
+              data-role="IT Consultant">
+              <img src="https://lh3.googleusercontent.com/d/1bT0lgJnVpTiS4E42BcXh_noXSp5yFAqU" alt="Francis Mark Mawo">
+            </div>
+
+            <!-- Member 10 -->
+            <div class="credit-carousel-card" onclick="selectCredit(9)" data-name="Dirk Balmes"
+              data-role="Operations Manager">
+              <img src="https://lh3.googleusercontent.com/d/17fD_blr_1JBnqaveXDh9rIrkW7GBbsUc" alt="Dirk Balmes">
+            </div>
+
+          </div>
+        </div>
+
+        <div class="credits-details-section">
+          <h4 id="activeCreditName">Rainier Gilo Villanueva</h4>
+          <p id="activeCreditRole">Web Developer</p>
+        </div>
+
+        <div class="credits-carousel-dots" id="creditsCarouselDots">
+          <!-- Dots will be rendered by JS -->
+        </div>
+
+        <div class="credits-v5-footer">
+          <p>© 2026 City Mayor's Office - IT Division</p>
+          <span>Crafted for Calbayog City</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ==================== MODALS ==================== -->
 
@@ -5513,7 +6302,7 @@
       document.querySelectorAll('.has-submenu').forEach(function (li) {
         li.addEventListener('mouseenter', function () { fixSubmenuOverflow(li); });
       });
-    
+
 
       // ============================================================
       // MOBILE HAMBURGER NAVIGATION
@@ -5588,7 +6377,210 @@
           if (event.key === 'Escape') closeMobileMenu();
         });
       })();
-</script>
+    </script>
+    <script>
+      // Credits 3D Carousel Implementation
+      let activeCreditIndex = 0;
+      let isCreditsCarouselInitialized = false;
+
+      function openCreditsModal() {
+        document.getElementById('creditsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (!isCreditsCarouselInitialized) {
+          initializeCreditsCarousel();
+        }
+        // Refresh positions
+        updateCreditsCarousel();
+      }
+
+      function closeCreditsModal() {
+        document.getElementById('creditsModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      function initializeCreditsCarousel() {
+        const track = document.getElementById('creditsCarouselTrack');
+        const cards = track.querySelectorAll('.credit-carousel-card');
+        const dotsContainer = document.getElementById('creditsCarouselDots');
+
+        if (!cards.length) return;
+
+        // Render Dots Dynamically
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, index) => {
+          const dot = document.createElement('div');
+          dot.classList.add('credits-dot');
+          if (index === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            selectCredit(index);
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        // Touch Gestures for mobile/tablet swipe
+        let startX = 0;
+        let isDragging = false;
+
+        track.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          isDragging = true;
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          const currentX = e.touches[0].clientX;
+          const diffX = startX - currentX;
+          if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+              nextCredit();
+            } else {
+              prevCredit();
+            }
+            isDragging = false;
+          }
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+          isDragging = false;
+        });
+
+        // Mouse dragging/swiping support for desktops
+        track.addEventListener('mousedown', (e) => {
+          startX = e.clientX;
+          isDragging = true;
+          e.preventDefault(); // prevent image selection/dragging artifacts
+        });
+
+        track.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          const currentX = e.clientX;
+          const diffX = startX - currentX;
+          if (Math.abs(diffX) > 60) {
+            if (diffX > 0) {
+              nextCredit();
+            } else {
+              prevCredit();
+            }
+            isDragging = false;
+          }
+        });
+
+        window.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+
+        // Keyboard arrow navigation
+        document.addEventListener('keydown', (e) => {
+          const modal = document.getElementById('creditsModal');
+          if (modal && modal.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+              prevCredit();
+            } else if (e.key === 'ArrowRight') {
+              nextCredit();
+            } else if (e.key === 'Escape') {
+              closeCreditsModal();
+            }
+          }
+        });
+
+        isCreditsCarouselInitialized = true;
+      }
+
+      function updateCreditsCarousel() {
+        const track = document.getElementById('creditsCarouselTrack');
+        const cards = track.querySelectorAll('.credit-carousel-card');
+        const dots = document.querySelectorAll('.credits-dot');
+        const nameEl = document.getElementById('activeCreditName');
+        const roleEl = document.getElementById('activeCreditRole');
+        const total = cards.length;
+
+        if (!total) return;
+
+        // Dynamic 3D transform assignment
+        cards.forEach((card, index) => {
+          let diff = index - activeCreditIndex;
+
+          // Compute shortest circular wrap-around distance
+          if (diff > total / 2) {
+            diff -= total;
+          } else if (diff < -total / 2) {
+            diff += total;
+          }
+
+          card.classList.remove('active', 'side', 'hidden');
+
+          // Scale and coordinates depending on screen sizes
+          let translateCoefficient = window.innerWidth <= 768 ? 105 : 150;
+          let scaleCoefficient = 0.85;
+          let rotateCoefficient = 20;
+
+          if (diff === 0) {
+            card.classList.add('active');
+            card.style.transform = `translate3d(0, 0, 100px) scale(1.1)`;
+            card.style.opacity = '1';
+            card.style.filter = 'none';
+            card.style.zIndex = '10';
+            card.style.pointerEvents = 'auto';
+          } else if (Math.abs(diff) === 1) {
+            card.classList.add('side');
+            card.style.transform = `translate3d(${diff * translateCoefficient}px, 0, 0px) scale(${scaleCoefficient}) rotateY(${-diff * rotateCoefficient}deg)`;
+            card.style.opacity = '0.65';
+            card.style.filter = 'grayscale(100%)';
+            card.style.zIndex = '5';
+            card.style.pointerEvents = 'auto';
+          } else if (Math.abs(diff) === 2) {
+            card.classList.add('side');
+            card.style.transform = `translate3d(${diff * (translateCoefficient * 1.65)}px, 0, -100px) scale(${scaleCoefficient * scaleCoefficient}) rotateY(${-diff * (rotateCoefficient * 1.5)}deg)`;
+            card.style.opacity = '0.35';
+            card.style.filter = 'grayscale(100%)';
+            card.style.zIndex = '3';
+            card.style.pointerEvents = 'none';
+          } else {
+            card.classList.add('hidden');
+            card.style.transform = `translate3d(${diff * (translateCoefficient * 2.2)}px, 0, -200px) scale(${scaleCoefficient * scaleCoefficient * scaleCoefficient}) rotateY(${-diff * (rotateCoefficient * 2)}deg)`;
+            card.style.opacity = '0';
+            card.style.filter = 'grayscale(100%)';
+            card.style.zIndex = '1';
+            card.style.pointerEvents = 'none';
+          }
+        });
+
+        // Detail update with elegant fade
+        const activeCard = cards[activeCreditIndex];
+        const activeName = activeCard.getAttribute('data-name');
+        const activeRole = activeCard.getAttribute('data-role');
+
+        const detailsSection = document.querySelector('.credits-details-section');
+        detailsSection.style.opacity = '0';
+
+        setTimeout(() => {
+          nameEl.textContent = activeName;
+          roleEl.textContent = activeRole;
+          detailsSection.style.opacity = '1';
+        }, 150);
+
+        // Highlight Active Dot
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeCreditIndex);
+        });
+      }
+
+      function selectCredit(index) {
+        const track = document.getElementById('creditsCarouselTrack');
+        const cards = track.querySelectorAll('.credit-carousel-card');
+        activeCreditIndex = (index + cards.length) % cards.length;
+        updateCreditsCarousel();
+      }
+
+      function nextCredit() {
+        selectCredit(activeCreditIndex + 1);
+      }
+
+      function prevCredit() {
+        selectCredit(activeCreditIndex - 1);
+      }
+
+    </script>
 </body>
 
 </html>
