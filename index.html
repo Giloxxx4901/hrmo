@@ -2822,7 +2822,159 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+
+    /* ===== MOBILE RESPONSIVE UPGRADE ===== */
+    .mobile-menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 9px;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 23px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        min-height: 64px;
+        height: 64px;
+        padding: 0 14px;
+        flex-wrap: nowrap;
+      }
+
+      .brand-seal { width: 42px; height: 42px; }
+      .brand-name h1 { font-size: 18px; }
+      .mobile-menu-btn { display: inline-flex; margin-left: auto; }
+
+      .topbar-nav {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 12px 14px 28px;
+        background: #fff;
+        overflow-y: auto;
+        z-index: 9998;
+        box-shadow: 0 14px 30px rgba(0,0,0,.18);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+      }
+
+      .topbar-nav.mobile-open { display: flex; }
+      body.mobile-menu-open { overflow: hidden; }
+
+      .topbar-nav > a,
+      .topbar-nav > .prime-dropdown > .prime-dropbtn {
+        width: 100%;
+        min-height: 46px;
+        padding: 11px 12px !important;
+        color: var(--text) !important;
+        border-radius: 8px;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+
+      .topbar-nav > a:hover,
+      .topbar-nav > .prime-dropdown > .prime-dropbtn:hover {
+        background: var(--blue-light) !important;
+        color: var(--blue-dark) !important;
+        transform: none;
+      }
+
+      .prime-dropdown { display: block; width: 100%; }
+      .prime-dropdown:hover > .prime-dropdown-menu,
+      .has-submenu:hover > .prime-submenu { display: none; }
+
+      .prime-dropdown-menu,
+      .prime-submenu,
+      .prime-submenu-deep {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        box-shadow: none;
+        border-radius: 8px;
+        padding: 4px 0 4px 10px;
+        background: #f7f9ff;
+      }
+
+      .prime-dropdown.mobile-expanded > .prime-dropdown-menu,
+      .has-submenu.mobile-expanded > .prime-submenu,
+      .has-submenu.mobile-expanded > .prime-submenu-deep { display: block; }
+
+      .prime-dropdown-menu a,
+      .prime-submenu a {
+        min-height: 43px;
+        padding: 10px 12px !important;
+        white-space: normal;
+        font-size: 12px !important;
+      }
+
+      .prime-dropdown-menu a:hover,
+      .prime-submenu a:hover {
+        padding-left: 12px !important;
+      }
+
+      .mobile-expanded > a > .ti-chevron-down,
+      .mobile-expanded > a > .ti-chevron-right { transform: rotate(90deg); }
+
+      .content { padding: 12px; }
+      .landing-hero {
+        width: calc(100% + 24px);
+        margin-left: -12px;
+        margin-right: -12px;
+        min-height: 390px;
+        height: auto;
+        border-radius: 0 0 18px 18px;
+        padding: 28px 18px;
+        background-size: cover;
+      }
+      .landing-copy h1 { font-size: clamp(29px, 10vw, 42px); }
+      .landing-copy h3 { font-size: 13px; line-height: 1.7; }
+      .landing-section-title { align-items: flex-start; }
+      .landing-section-title h2 { font-size: 21px; }
+      .quick-link-grid, .stats-grid, .grid-auto { grid-template-columns: 1fr; }
+      .activity-gallery { grid-template-columns: 1fr; }
+      .card, .page-hero { padding: 16px; }
+      .tabs { overflow-x: auto; white-space: nowrap; }
+      .tab { flex: 0 0 auto; }
+      .modal-overlay { padding: 10px; }
+      .modal-header, .modal-body { padding-left: 16px; padding-right: 16px; }
+      .modal-footer { padding-left: 16px; padding-right: 16px; flex-wrap: wrap; }
+      .modal-footer .btn { flex: 1; justify-content: center; }
+      .notif-panel { position: fixed; top: 70px; left: 12px; right: 12px; width: auto; }
+      .toast-container { left: 12px; right: 12px; bottom: 12px; }
+      .toast { min-width: 0; width: 100%; }
+      .detail-row { gap: 12px; }
+      .detail-lbl { min-width: 105px; }
+      .footer-container { padding: 0 16px; }
+      .govph-col { margin-left: 0; margin-right: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .brand-seal { width: 38px; height: 38px; }
+      .brand-name h1 { font-size: 17px; }
+      .landing-hero { min-height: 350px; }
+      .landing-copy h1 { font-size: 30px; }
+      .landing-section-title h2 { font-size: 20px; }
+      .news-carousel-container { padding: 0 10px; }
+      .news-nav { display: none; }
+      .news-card { min-width: 100%; }
+      .event-item { align-items: flex-start; }
+      .page-hero-actions, .quick-actions { flex-direction: column; }
+      .page-hero-actions .btn, .quick-actions .btn { width: 100%; justify-content: center; }
+    }
+</style>
 </head>
 
 <body>
@@ -2842,7 +2994,10 @@
         </div>
 
       </a>
-      <nav class="topbar-nav">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation menu" aria-controls="topbarNav" aria-expanded="false">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
+      <nav class="topbar-nav" id="topbarNav">
         <a onclick="showPage('dashboard')" id="nav-dashboard">Home</a>
 
         <!-- PRIME HR DROPDOWN MENU -->
@@ -5358,7 +5513,82 @@
       document.querySelectorAll('.has-submenu').forEach(function (li) {
         li.addEventListener('mouseenter', function () { fixSubmenuOverflow(li); });
       });
-    </script>
+    
+
+      // ============================================================
+      // MOBILE HAMBURGER NAVIGATION
+      // ============================================================
+      (function setupMobileNavigation() {
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('topbarNav');
+        if (!menuBtn || !nav) return;
+
+        const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+        function closeMobileMenu() {
+          nav.classList.remove('mobile-open');
+          document.body.classList.remove('mobile-menu-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          menuBtn.setAttribute('aria-label', 'Open navigation menu');
+          menuBtn.innerHTML = '<i class="ti ti-menu-2" aria-hidden="true"></i>';
+          nav.querySelectorAll('.mobile-expanded').forEach(el => el.classList.remove('mobile-expanded'));
+        }
+
+        menuBtn.addEventListener('click', function () {
+          const opening = !nav.classList.contains('mobile-open');
+          nav.classList.toggle('mobile-open', opening);
+          document.body.classList.toggle('mobile-menu-open', opening);
+          menuBtn.setAttribute('aria-expanded', String(opening));
+          menuBtn.setAttribute('aria-label', opening ? 'Close navigation menu' : 'Open navigation menu');
+          menuBtn.innerHTML = opening
+            ? '<i class="ti ti-x" aria-hidden="true"></i>'
+            : '<i class="ti ti-menu-2" aria-hidden="true"></i>';
+        });
+
+        nav.querySelectorAll('.prime-dropbtn').forEach(function (trigger) {
+          trigger.addEventListener('click', function (event) {
+            if (!isMobile()) return;
+            const dropdown = trigger.closest('.prime-dropdown');
+            if (!dropdown) return;
+            event.preventDefault();
+            event.stopPropagation();
+            const willOpen = !dropdown.classList.contains('mobile-expanded');
+            nav.querySelectorAll(':scope > .prime-dropdown.mobile-expanded').forEach(el => {
+              if (el !== dropdown) el.classList.remove('mobile-expanded');
+            });
+            dropdown.classList.toggle('mobile-expanded', willOpen);
+          });
+        });
+
+        nav.querySelectorAll('.has-submenu > a').forEach(function (trigger) {
+          trigger.addEventListener('click', function (event) {
+            if (!isMobile()) return;
+            const item = trigger.parentElement;
+            const submenu = item.querySelector(':scope > .prime-submenu, :scope > .prime-submenu-deep');
+            if (!submenu) return;
+            event.preventDefault();
+            event.stopPropagation();
+            item.classList.toggle('mobile-expanded');
+          });
+        });
+
+        nav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            if (!isMobile()) return;
+            const isToggle = link.classList.contains('prime-dropbtn') || link.parentElement.classList.contains('has-submenu');
+            if (!isToggle) closeMobileMenu();
+          });
+        });
+
+        window.addEventListener('resize', function () {
+          if (!isMobile()) closeMobileMenu();
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') closeMobileMenu();
+        });
+      })();
+</script>
 </body>
 
 </html>
