@@ -3053,6 +3053,14 @@ on conflict (id) do update set role = 'admin';
       align-items: start;
     }
 
+    .events-layout.activities-only {
+      grid-template-columns: 1fr;
+    }
+
+    .events-layout.activities-only .mini-cal {
+      display: none;
+    }
+
     .mini-cal {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -4645,8 +4653,8 @@ on conflict (id) do update set role = 'admin';
                 <li><a href="#" onclick="showPage('pms-policy')">Performance Management System Policy</a></li>
                 <li><a href="#" onclick="showPage('pms-calendar')">Calendar of Reports</a></li>
                 <li><a href="#" onclick="showPage('pms-forms')">Forms</a></li>
-                <li><a href="#" onclick="showPage('pms-activities')">Activities</a></li>
-                <li><a href="#" onclick="showPage('pms-photos')">Photos</a></li>
+                <li><a href="javascript:void(0)" onclick="openEventsModal('activities')">Activities</a></li>
+                <li><a href="javascript:void(0)" onclick="openModal('galleryModal')">Photos</a></li>
               </ul>
             </li>
 
@@ -4718,7 +4726,7 @@ on conflict (id) do update set role = 'admin';
               <p>Click here for more details.</p>
             </div>
             <div class="quick-link-card" onclick="showPage('welfare')">
-              <h3>WELFARE AND BENIFITS</h3>
+              <h3>WELFARE AND BENEFITS</h3>
               <p>Click here for more details.</p>
             </div>
             <div class="quick-link-card" onclick="showPage('performance')">
@@ -4766,7 +4774,7 @@ on conflict (id) do update set role = 'admin';
             </div>
           </div>
           <div class="news-grid">
-            <article class="news-card" onclick="openModal('eventsModal')">
+            <article class="news-card" onclick="openEventsModal('upcoming')">
               <div class="news-thumb highlight-cover highlight-calendar-cover" aria-label="Calendar background"></div>
               <div class="news-body">
                 <h3>Upcoming Events</h3>
@@ -4782,7 +4790,8 @@ on conflict (id) do update set role = 'admin';
               </div>
             </article>
             <article class="news-card" onclick="openModal('charterModal')">
-              <div class="news-thumb"><i class="ti ti-file-description"></i></div>
+              <div class="news-thumb highlight-cover highlight-charter-cover" aria-label="Citizen's Charter background">
+              </div>
               <div class="news-body">
                 <h3>Citizen's Charter</h3>
                 <p>View our service pledges and procedures.</p>
@@ -5390,6 +5399,102 @@ on conflict (id) do update set role = 'admin';
         .formal-document .underline {
           text-decoration: underline;
         }
+
+
+        /* ===== CUSTOM UPDATE: BLURRED ADMIN LOGIN ===== */
+        #cmsLoginModal {
+          background: rgba(255, 255, 255, 0.06);
+          backdrop-filter: blur(16px) saturate(115%);
+          -webkit-backdrop-filter: blur(16px) saturate(115%);
+          z-index: 100000;
+        }
+
+        #cmsLoginModal .modal {
+          background: rgba(255, 255, 255, 0.90);
+          border: 1px solid rgba(255, 255, 255, 0.72);
+          border-radius: 20px;
+          box-shadow: 0 24px 70px rgba(20, 46, 100, 0.24);
+          backdrop-filter: blur(22px);
+          -webkit-backdrop-filter: blur(22px);
+          animation: cmsLoginPop .25s ease;
+        }
+
+        #cmsLoginModal .modal-header {
+          padding-top: 24px;
+        }
+
+        #cmsLoginModal .modal-header h2 {
+          color: var(--blue-dark);
+        }
+
+        @keyframes cmsLoginPop {
+          from {
+            opacity: 0;
+            transform: translateY(18px) scale(.96);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        /* ===== CUSTOM UPDATE: CITIZEN'S CHARTER BACKGROUND ===== */
+        .highlight-charter-cover {
+          position: relative;
+          min-height: 150px;
+          overflow: hidden;
+          background:
+            linear-gradient(135deg, rgba(26, 86, 219, .88), rgba(30, 58, 138, .78)),
+            url("https://calbayog.gov.ph/wp-content/uploads/2025/10/HR-LOGO.jpg") center/cover no-repeat;
+        }
+
+        .highlight-charter-cover::before {
+          content: "CITIZEN'S CHARTER";
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 18px;
+          color: #fff;
+          font-size: clamp(18px, 2.2vw, 28px);
+          font-weight: 800;
+          letter-spacing: .08em;
+          text-align: center;
+          text-shadow: 0 3px 12px rgba(0, 0, 0, .35);
+          z-index: 2;
+        }
+
+        .highlight-charter-cover::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .22), transparent 48%);
+          z-index: 1;
+        }
+
+        #charterModal .modal {
+          position: relative;
+          overflow: hidden;
+          background:
+            linear-gradient(rgba(255, 255, 255, .93), rgba(255, 255, 255, .93)),
+            url("https://calbayog.gov.ph/wp-content/uploads/2025/10/HR-LOGO.jpg") center/cover no-repeat;
+        }
+
+        #charterModal .modal::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(26, 86, 219, .08), rgba(15, 126, 106, .06));
+          pointer-events: none;
+        }
+
+        #charterModal .modal-header,
+        #charterModal .modal-body {
+          position: relative;
+          z-index: 1;
+        }
       </style>
       <div class="page" id="page-codi">
         <div class="page-hero" style="margin-bottom: 0;">
@@ -5767,8 +5872,8 @@ on conflict (id) do update set role = 'admin';
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label>Admin Email</label>
-              <input type="email" id="cmsEmail" autocomplete="username" placeholder="admin@calbayog.gov.ph">
+              <label>Admin Username</label>
+              <input type="text" id="cmsUsername" autocomplete="username" placeholder="Enter username">
             </div>
             <div class="form-group">
               <label>Password</label>
@@ -6367,11 +6472,11 @@ on conflict (id) do update set role = 'admin';
     <div class="modal-overlay" id="eventsModal">
       <div class="modal" style="max-width:760px">
         <div class="modal-header">
-          <h2>Upcoming Events</h2>
+          <h2 id="eventsModalTitle">Upcoming Events</h2>
           <button class="close-btn" onclick="closeModal('eventsModal')"><i class="ti ti-x"></i></button>
         </div>
         <div class="modal-body">
-          <div class="events-layout">
+          <div class="events-layout" id="eventsLayout">
             <!-- Sa kaliwa: Mini Calendar -->
             <div class="mini-cal" id="miniCal">
               <div class="mini-cal-hd">
@@ -6652,6 +6757,7 @@ on conflict (id) do update set role = 'admin';
       const DOW_LABELS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
       let miniCalDate = new Date();
       let miniCalSelectedDay = null;
+      let eventsModalMode = 'upcoming';
 
       function eventsOnDate(y, m, d) {
         const key = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
@@ -6720,19 +6826,25 @@ on conflict (id) do update set role = 'admin';
 
         const y = miniCalDate.getFullYear();
         const m = miniCalDate.getMonth();
+        let filtered;
+        let filterTitle;
 
-        // 1. Filter events by currently selected month/year
-        let filtered = upcomingEvents.filter(e => {
-          const dt = new Date(e.date + 'T00:00:00');
-          return dt.getFullYear() === y && dt.getMonth() === m;
-        });
+        if (eventsModalMode === 'activities') {
+          filtered = [...upcomingEvents];
+          filterTitle = 'Activities';
+        } else {
+          // Upcoming Events view: filter by the month selected in the calendar.
+          filtered = upcomingEvents.filter(e => {
+            const dt = new Date(e.date + 'T00:00:00');
+            return dt.getFullYear() === y && dt.getMonth() === m;
+          });
 
-        // 2. Filter further if a specific day is selected
-        let filterTitle = `Upcoming events for ${MONTH_NAMES[m]} ${y}`;
-        if (miniCalSelectedDay !== null) {
-          const key = `${y}-${String(m + 1).padStart(2, '0')}-${String(miniCalSelectedDay).padStart(2, '0')}`;
-          filtered = filtered.filter(e => e.date === key);
-          filterTitle = `Events on ${MONTH_NAMES[m]} ${miniCalSelectedDay}, ${y}`;
+          filterTitle = `Upcoming events for ${MONTH_NAMES[m]} ${y}`;
+          if (miniCalSelectedDay !== null) {
+            const key = `${y}-${String(m + 1).padStart(2, '0')}-${String(miniCalSelectedDay).padStart(2, '0')}`;
+            filtered = filtered.filter(e => e.date === key);
+            filterTitle = `Events on ${MONTH_NAMES[m]} ${miniCalSelectedDay}, ${y}`;
+          }
         }
 
         // Update the header label with filtered title or add a clear button
@@ -6746,8 +6858,8 @@ on conflict (id) do update set role = 'admin';
 
         if (!filtered.length) {
           panel.innerHTML = cardEmpty(
-            miniCalSelectedDay !== null ? 'No events on this day' : 'No events scheduled for this month',
-            miniCalSelectedDay !== null ? 'Select another day or click (Show All Month).' : 'Check back later for scheduled activities.',
+            eventsModalMode === 'activities' ? 'No activities available' : (miniCalSelectedDay !== null ? 'No events on this day' : 'No events scheduled for this month'),
+            eventsModalMode === 'activities' ? 'Check back later for scheduled activities.' : (miniCalSelectedDay !== null ? 'Select another day or click (Show All Month).' : 'Check back later for scheduled activities.'),
             'ti-calendar-event'
           );
           return;
@@ -6773,11 +6885,25 @@ on conflict (id) do update set role = 'admin';
         }).join('');
       }
 
-      function initEventsModal() {
+      function initEventsModal(mode = 'upcoming') {
+        eventsModalMode = mode;
         miniCalDate = new Date();
-        miniCalSelectedDay = null; // Reset selection
-        renderMiniCal();
+        miniCalSelectedDay = null;
+
+        const layout = document.getElementById('eventsLayout');
+        const modalTitle = document.getElementById('eventsModalTitle');
+        if (layout) layout.classList.toggle('activities-only', mode === 'activities');
+        if (modalTitle) modalTitle.textContent = mode === 'activities' ? 'Activities' : 'Upcoming Events';
+
+        if (mode === 'upcoming') renderMiniCal();
         renderEventsListPanel();
+      }
+
+      function openEventsModal(mode = 'upcoming') {
+        const modal = document.getElementById('eventsModal');
+        if (!modal) return;
+        modal.classList.add('open');
+        initEventsModal(mode);
       }
 
       // ============================================================
@@ -6835,7 +6961,7 @@ on conflict (id) do update set role = 'admin';
       // ============================================================
       function openModal(id) {
         document.getElementById(id).classList.add('open');
-        if (id === 'eventsModal') initEventsModal();
+        if (id === 'eventsModal') initEventsModal('upcoming');
       }
       function closeModal(id) { document.getElementById(id).classList.remove('open'); }
       document.querySelectorAll('.modal-overlay').forEach(m => { m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); }); });
@@ -7654,10 +7780,15 @@ on conflict (id) do update set role = 'admin';
 
       async function cmsLogin() {
         if (!cmsRequireConfig()) return;
-        const email = document.getElementById('cmsEmail').value.trim();
+        const username = document.getElementById('cmsUsername').value.trim().toLowerCase();
         const password = document.getElementById('cmsPassword').value;
-        if (!email || !password) return showToast('Enter the admin email and password.', 'warning');
+        if (!username || !password) return showToast('Enter the admin username and password.', 'warning');
 
+        // Custom username login: hrmoadmin maps to the existing Supabase account.
+        if (username !== 'hrmoadmin') {
+          return showToast('Invalid admin username or password.', 'error');
+        }
+        const email = 'chrmoadmin@gov.ph';
         const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
         if (error) return showToast(error.message, 'error');
         const allowed = await cmsCheckAdmin(data.user);
@@ -7722,7 +7853,7 @@ on conflict (id) do update set role = 'admin';
         if (!modal) return;
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
-        setTimeout(() => document.getElementById('cmsEmail')?.focus(), 50);
+        setTimeout(() => document.getElementById('cmsUsername')?.focus(), 50);
       }
 
       function closeCmsLogin() {
