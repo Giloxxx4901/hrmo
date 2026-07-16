@@ -2660,6 +2660,159 @@ on conflict (id) do update set role = 'admin';
     }
 
 
+
+
+    /* ===== MOBILE ADMIN LOGIN ACCESS ===== */
+    .mobile-admin-nav-link {
+      display: none !important;
+    }
+
+    .mobile-admin-fab {
+      display: none;
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 54px;
+      height: 54px;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a56db, #1e3a8a);
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      cursor: pointer;
+      z-index: 9990;
+      box-shadow: 0 10px 28px rgba(26, 86, 219, .35);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .mobile-admin-fab:hover,
+    .mobile-admin-fab:focus-visible {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 34px rgba(26, 86, 219, .42);
+      outline: none;
+    }
+
+    .mobile-admin-fab .admin-fab-label {
+      position: absolute;
+      right: 64px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: #1e3a8a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: .2s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .mobile-admin-fab:hover .admin-fab-label,
+    .mobile-admin-fab:focus-visible .admin-fab-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-admin-nav-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 48px;
+        margin-top: 10px;
+        padding: 12px 14px !important;
+        border-radius: 9px !important;
+        background: #eef4ff !important;
+        border: 1px solid #c8dcff;
+        color: #1a56db !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+      }
+
+      .mobile-admin-nav-link:hover {
+        background: #dbeafe !important;
+        transform: none !important;
+      }
+
+      .mobile-admin-fab {
+        display: flex;
+      }
+
+      body.mobile-menu-open .mobile-admin-fab,
+      .modal-overlay.open~.mobile-admin-fab {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-admin-fab {
+        display: none !important;
+      }
+    }
+
+    /* ===== DEFAULT NEWS IMAGE + HIGHLIGHT BACKGROUNDS ===== */
+    .news-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .news-image.default-news-image {
+      background-image:
+        linear-gradient(rgba(26, 86, 219, .10), rgba(26, 86, 219, .10)),
+        url("https://calbayog.gov.ph/wp-content/uploads/2025/10/HR-LOGO.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #edf3ff;
+    }
+
+    .highlight-cover {
+      height: 150px;
+      position: relative;
+      overflow: hidden;
+      background-color: #eaf2ff;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .highlight-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(26, 86, 219, .03), rgba(26, 86, 219, .16));
+      pointer-events: none;
+    }
+
+    .highlight-calendar-cover {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .10), rgba(26, 86, 219, .10)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='450' viewBox='0 0 900 450'%3E%3Crect width='900' height='450' fill='%23edf4ff'/%3E%3Crect x='185' y='70' width='530' height='320' rx='28' fill='%23ffffff' stroke='%231a56db' stroke-width='12'/%3E%3Crect x='185' y='70' width='530' height='90' rx='28' fill='%231a56db'/%3E%3Crect x='245' y='38' width='35' height='80' rx='16' fill='%231e3a8a'/%3E%3Crect x='620' y='38' width='35' height='80' rx='16' fill='%231e3a8a'/%3E%3Cg fill='%2397b9ef'%3E%3Crect x='245' y='205' width='70' height='55' rx='10'/%3E%3Crect x='345' y='205' width='70' height='55' rx='10'/%3E%3Crect x='445' y='205' width='70' height='55' rx='10'/%3E%3Crect x='545' y='205' width='70' height='55' rx='10'/%3E%3Crect x='245' y='290' width='70' height='55' rx='10'/%3E%3Crect x='345' y='290' width='70' height='55' rx='10'/%3E%3Crect x='445' y='290' width='70' height='55' rx='10'/%3E%3Crect x='545' y='290' width='70' height='55' rx='10'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .highlight-gallery-cover {
+      background-image:
+        linear-gradient(rgba(26, 86, 219, .10), rgba(26, 86, 219, .10)),
+        url("https://calbayog.gov.ph/wp-content/uploads/2025/10/HR-LOGO.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 600px) {
+      .highlight-cover {
+        height: 190px;
+      }
+    }
+
     /* ===== PHOTO ALBUM GALLERY ===== */
     #galleryModal .modal {
       width: min(1280px, 96vw);
@@ -4516,8 +4669,19 @@ on conflict (id) do update set role = 'admin';
             <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
           </ul>
         </div>
+
+        <a href="javascript:void(0)" class="mobile-admin-nav-link" onclick="openCmsLogin()">
+          <span><i class="ti ti-lock"></i> Admin Login</span>
+          <i class="ti ti-chevron-right"></i>
+        </a>
       </nav>
     </header>
+
+    <button type="button" class="mobile-admin-fab" id="mobileAdminFab" onclick="openCmsLogin()"
+      aria-label="Open Admin Login" title="Admin Login">
+      <i class="ti ti-lock"></i>
+      <span class="admin-fab-label">Admin Login</span>
+    </button>
 
     <!-- MAIN CONTENT -->
     <main class="content">
@@ -4603,14 +4767,15 @@ on conflict (id) do update set role = 'admin';
           </div>
           <div class="news-grid">
             <article class="news-card" onclick="openModal('eventsModal')">
-              <div class="news-thumb"><i class="ti ti-calendar-event"></i></div>
+              <div class="news-thumb highlight-cover highlight-calendar-cover" aria-label="Calendar background"></div>
               <div class="news-body">
                 <h3>Upcoming Events</h3>
                 <p>Upcoming seminars, orientations, and activities will be displayed here.</p>
               </div>
             </article>
             <article class="news-card" onclick="openModal('galleryModal')">
-              <div class="news-thumb"><i class="ti ti-photo"></i></div>
+              <div id="highlightGalleryCover" class="news-thumb highlight-cover highlight-gallery-cover"
+                aria-label="Latest gallery photo"></div>
               <div class="news-body">
                 <h3>Photo Gallery</h3>
                 <p>View photos from previous HR events and activities.</p>
@@ -5758,7 +5923,8 @@ on conflict (id) do update set role = 'admin';
                     will be applied to all selected photos.</small>
                 </div>
                 <div style="display:flex;gap:8px;flex-wrap:wrap">
-                  <button type="button" class="btn btn-primary" onclick="saveCmsGallery()"><i class="ti ti-upload"></i>
+                  <button type="button" id="cmsGallerySaveBtn" class="btn btn-primary" onclick="saveCmsGallery()"><i
+                      class="ti ti-upload"></i>
                     Save Album</button>
                   <button type="button" class="btn btn-outline" onclick="clearCmsGalleryForm()">Clear</button>
                 </div>
@@ -7448,6 +7614,7 @@ on conflict (id) do update set role = 'admin';
       let cmsNewsCache = [];
       let cmsEventsCache = [];
       let cmsGalleryCache = [];
+      let cmsGallerySaving = false;
 
       function cmsEscape(value = '') {
         return String(value).replace(/[&<>'"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' }[ch]));
@@ -7534,6 +7701,19 @@ on conflict (id) do update set role = 'admin';
 
       function openCmsLogin() {
         if (!cmsRequireConfig()) return;
+
+        const mobileNav = document.getElementById('topbarNav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        if (mobileNav) mobileNav.classList.remove('mobile-open');
+        document.body.classList.remove('mobile-menu-open');
+
+        if (mobileMenuBtn) {
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+          mobileMenuBtn.innerHTML = '<i class="ti ti-menu-2" aria-hidden="true"></i>';
+        }
+
         if (cmsIsAdmin) {
           showPage('login');
           return;
@@ -7608,10 +7788,13 @@ on conflict (id) do update set role = 'admin';
           return;
         }
         container.innerHTML = data.map(post => {
-          const image = post.image_url ? `style="background-image:url('${cmsEscape(post.image_url)}');background-size:cover;background-position:center"` : '';
+          const imageClass = post.image_url ? 'news-image' : 'news-image default-news-image';
+          const imageStyle = post.image_url
+            ? `style="background-image:url('${cmsEscape(post.image_url)}');background-size:cover;background-position:center"`
+            : '';
           const link = post.facebook_url ? `<a href="${cmsSafeUrl(post.facebook_url)}" target="_blank" rel="noopener noreferrer" class="read-more">View Source <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>` : '';
           return `<article class="news-card">
-            <div class="news-image" ${image}>${post.image_url ? '' : '<i class="fas fa-image fa-3x" style="color:#a0aec0"></i>'}</div>
+            <div class="${imageClass}" ${imageStyle}></div>
             <div class="news-content">
               <span class="news-date"><i class="fas fa-calendar-alt"></i> ${cmsDateLabel(post.post_date)}</span>
               <h4>${cmsEscape(post.title)}</h4>
@@ -7795,19 +7978,46 @@ on conflict (id) do update set role = 'admin';
         document.getElementById('eventFormHeading').textContent = 'Add Event';
       }
 
-      async function uploadCmsGalleryImage(file) {
+      async function uploadCmsGalleryImage(file, albumToken = '') {
         if (!file) throw new Error('Select a photo first.');
         if (file.size > 8 * 1024 * 1024) throw new Error(`${file.name} must be 8 MB or smaller.`);
-        const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
-        const path = `${cmsCurrentUser.id}/${Date.now()}-${crypto.randomUUID()}.${ext}`;
-        const { error } = await supabaseClient.storage.from('gallery-images').upload(path, file, { cacheControl: '3600', upsert: false });
+
+        const ext = (file.name.split('.').pop() || 'jpg')
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, '');
+
+        const safeName = file.name
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[^a-zA-Z0-9_-]+/g, '-')
+          .replace(/^-+|-+$/g, '')
+          .slice(0, 60) || 'photo';
+
+        const folder = albumToken || `single-${Date.now()}-${crypto.randomUUID()}`;
+        const path = `${cmsCurrentUser.id}/${folder}/${crypto.randomUUID()}-${safeName}.${ext}`;
+
+        const { error } = await supabaseClient.storage
+          .from('gallery-images')
+          .upload(path, file, { cacheControl: '3600', upsert: false });
+
         if (error) throw error;
-        const { data } = supabaseClient.storage.from('gallery-images').getPublicUrl(path);
+
+        const { data } = supabaseClient.storage
+          .from('gallery-images')
+          .getPublicUrl(path);
+
         return { path, url: data.publicUrl };
       }
 
       async function saveCmsGallery() {
+        if (cmsGallerySaving) return;
         if (!cmsIsAdmin) return showToast('Admin login required.', 'error');
+
+        const saveBtn = document.getElementById('cmsGallerySaveBtn');
+        cmsGallerySaving = true;
+        if (saveBtn) {
+          saveBtn.disabled = true;
+          saveBtn.innerHTML = '<i class="ti ti-loader-2"></i> Saving...';
+        }
 
         const id = document.getElementById('cmsGalleryId').value;
         const title = document.getElementById('cmsGalleryTitle').value.trim();
@@ -7827,6 +8037,7 @@ on conflict (id) do update set role = 'admin';
         };
 
         const uploadedPaths = [];
+        const albumToken = `album-${Date.now()}-${crypto.randomUUID()}`;
 
         try {
           if (id) {
@@ -7837,7 +8048,7 @@ on conflict (id) do update set role = 'admin';
             let imageUrl = current.image_url;
 
             if (files[0]) {
-              const uploaded = await uploadCmsGalleryImage(files[0]);
+              const uploaded = await uploadCmsGalleryImage(files[0], albumToken);
               uploadedPaths.push(uploaded.path);
               imagePath = uploaded.path;
               imageUrl = uploaded.url;
@@ -7859,7 +8070,7 @@ on conflict (id) do update set role = 'admin';
             const rows = [];
 
             for (const file of files) {
-              const uploaded = await uploadCmsGalleryImage(file);
+              const uploaded = await uploadCmsGalleryImage(file, albumToken);
               uploadedPaths.push(uploaded.path);
               rows.push({
                 ...commonPayload,
@@ -7884,6 +8095,12 @@ on conflict (id) do update set role = 'admin';
           }
           alert('Save gallery failed: ' + (error.message || error));
           showToast(error.message || 'Unable to save photo album.', 'error');
+        } finally {
+          cmsGallerySaving = false;
+          if (saveBtn) {
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = '<i class="ti ti-upload"></i> Save Album';
+          }
         }
       }
 
@@ -7929,7 +8146,13 @@ on conflict (id) do update set role = 'admin';
         const groups = new Map();
 
         for (const photo of photos || []) {
-          const key = `${photo.title || ''}|||${photo.photo_date || ''}|||${photo.caption || ''}`;
+          const pathParts = String(photo.image_path || '').split('/');
+          const storageAlbumFolder = pathParts.length >= 3 ? pathParts[1] : '';
+
+          const key = storageAlbumFolder.startsWith('album-')
+            ? `folder|||${storageAlbumFolder}`
+            : `legacy|||${photo.title || ''}|||${photo.photo_date || ''}|||${photo.caption || ''}`;
+
           if (!groups.has(key)) {
             groups.set(key, {
               key,
@@ -7943,7 +8166,14 @@ on conflict (id) do update set role = 'admin';
           }
 
           const album = groups.get(key);
-          album.photos.push(photo);
+
+          // Prevent an identical database row/path from being counted twice in the UI.
+          if (!album.photos.some(existing =>
+            String(existing.id) === String(photo.id) ||
+            (existing.image_path && existing.image_path === photo.image_path)
+          )) {
+            album.photos.push(photo);
+          }
 
           if ((photo.created_at || '') > (album.createdAt || '')) {
             album.createdAt = photo.created_at || album.createdAt;
@@ -8102,6 +8332,15 @@ on conflict (id) do update set role = 'admin';
         }
 
         const albums = groupGalleryAlbums(cmsGalleryCache);
+
+        const highlightCover = document.getElementById('highlightGalleryCover');
+        const latestGalleryImage = albums[0]?.photos?.[0]?.image_url || '';
+        if (highlightCover && latestGalleryImage) {
+          highlightCover.style.backgroundImage =
+            `linear-gradient(rgba(26,86,219,.08), rgba(26,86,219,.16)), url("${latestGalleryImage.replace(/"/g, '%22')}")`;
+          highlightCover.style.backgroundSize = 'cover';
+          highlightCover.style.backgroundPosition = 'center';
+        }
 
         grid.innerHTML = albums.map(album => `
           <article class="public-album-card" onclick="openGalleryAlbum('${encodeURIComponent(album.key)}')">
