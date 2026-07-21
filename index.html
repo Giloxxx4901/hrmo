@@ -10359,7 +10359,79 @@ on conflict (id) do update set role = 'admin';
                     width: auto
                 }
             }
-        </style>
+        
+        /* ===== FINAL FULL-WIDTH LANDING HERO FIX ===== */
+        .content {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .content > .page.active:not(#page-home) {
+            width: calc(100% - 48px);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #page-home.active {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #page-home .landing-hero {
+            position: relative;
+            width: 100% !important;
+            max-width: none !important;
+            min-height: clamp(430px, 42vw, 700px);
+            height: auto;
+            margin: 0 0 28px !important;
+            padding: clamp(28px, 5vw, 72px);
+            border-radius: 0 !important;
+            overflow: hidden;
+            background-size: cover !important;
+            background-position: center 68% !important;
+            background-repeat: no-repeat !important;
+        }
+
+        #page-home > .landing-section,
+        #page-home > .admin-strip {
+            width: calc(100% - 48px);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .content > .page.active:not(#page-home) {
+                width: calc(100% - 24px);
+            }
+
+            #page-home .landing-hero {
+                width: 100% !important;
+                min-height: 390px;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding: 30px 18px;
+                border-radius: 0 !important;
+                background-position: center center !important;
+            }
+
+            #page-home > .landing-section,
+            #page-home > .admin-strip {
+                width: calc(100% - 24px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            #page-home .landing-hero {
+                min-height: 360px;
+                padding: 26px 16px;
+            }
+        }
+
+    </style>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var section = document.getElementById('complaintsHandlingSection');
