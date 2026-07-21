@@ -5283,24 +5283,6 @@ on conflict (id) do update set role = 'admin';
             }
         }
 
-      html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-img,
-video,
-iframe {
-    max-width: 100%;
-}
         /* ===== FINAL HEADER / PAGE / FOOTER LAYOUT FIX ===== */
         html,
         body {
@@ -10291,16 +10273,53 @@ iframe {
                 filter: grayscale(100%)
             }
 
-            body.access-text-small :where(p, a, li, span, label, input, select, textarea, button) {
-                font-size: 90% !important
+            /*
+             * Text-size accessibility applies only to the website content.
+             * Floating accessibility, credits, and scroll controls stay fixed
+             * in size and position while the page text is adjusted.
+             */
+            body.access-text-small :where(.app, .gwt-footer, .custom-govph-footer)
+            :where(p, a, li, span, label, input, select, textarea, button) {
+                font-size: 90% !important;
             }
 
-            body.access-text-large :where(p, a, li, span, label, input, select, textarea, button) {
-                font-size: 110% !important
+            body.access-text-large :where(.app, .gwt-footer, .custom-govph-footer)
+            :where(p, a, li, span, label, input, select, textarea, button) {
+                font-size: 110% !important;
             }
 
-            body.access-text-xlarge :where(p, a, li, span, label, input, select, textarea, button) {
-                font-size: 120% !important
+            body.access-text-xlarge :where(.app, .gwt-footer, .custom-govph-footer)
+            :where(p, a, li, span, label, input, select, textarea, button) {
+                font-size: 120% !important;
+            }
+
+            /* Keep all floating utility controls completely steady. */
+            .accessibility-panel,
+            .accessibility-panel *,
+            .left-utility-fabs,
+            .left-utility-fabs *,
+            .page-scroll-controls,
+            .page-scroll-controls * {
+                font-size: revert !important;
+            }
+
+            .accessibility-panel {
+                width: 260px;
+                left: 92px;
+                bottom: 90px;
+                transform: none !important;
+            }
+
+            .accessibility-panel h3 {
+                font-size: 16px !important;
+            }
+
+            .accessibility-panel button {
+                font-size: 13px !important;
+            }
+
+            .left-utility-fab {
+                font-size: 23px !important;
             }
 
             body.access-underline-links a {
