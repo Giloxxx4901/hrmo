@@ -462,11 +462,14 @@ on conflict (id) do update set role = 'admin';
         }
 
         .page.active {
+            width: 100%;
+        }
+
+        .page.active>*:not(.landing-hero) {
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
-
 
         /* FIX: keep every internal page close to the sticky top menu */
         .content>.page.active {
@@ -588,7 +591,7 @@ on conflict (id) do update set role = 'admin';
         }
 
         .contact-info p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin: 0.15rem 0;
             color: #000000;
             line-height: 1.3;
@@ -628,7 +631,7 @@ on conflict (id) do update set role = 'admin';
         .footer-links a {
             color: #000000;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -664,7 +667,7 @@ on conflict (id) do update set role = 'admin';
         }
 
         .about-text {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #000000;
             line-height: 1.5;
             margin-bottom: 1rem;
@@ -2280,27 +2283,43 @@ on conflict (id) do update set role = 'admin';
 
 
         /* LANDING DASHBOARD */
+        /* ===== LANDING HERO (FULL WIDTH LEFT & RIGHT ONLY) ===== */
         .landing-hero {
-            border-radius: 0px;
+            position: relative;
+
+            /* Full browser width */
             width: 100vw;
-            height: 32vw;
+            max-width: 100vw;
+
+            /* Break out of the centered container */
             margin-left: calc(50% - 50vw);
             margin-right: calc(50% - 50vw);
 
+            /* Keep existing height */
+            height: 32vw;
+            min-height: 520px;
+            max-height: 720px;
+
+            border-radius: 0;
+            overflow: hidden;
 
             background:
                 linear-gradient(rgba(42, 72, 137, .65),
                     rgba(15, 126, 106, .45)),
                 url("https://calbayog.gov.ph/wp-content/uploads/2026/07/CALBAYOG-CITY-HALL.jpg");
 
-            background-size: 100%;
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: center 68%;
+            background-position: center center;
 
             display: flex;
             align-items: center;
+
             padding: 30px;
+
+            /* Keep spacing below exactly the same */
             margin-bottom: 28px;
+
             box-shadow: 0 18px 45px rgba(42, 72, 137, .22);
         }
 
@@ -10359,79 +10378,78 @@ on conflict (id) do update set role = 'admin';
                     width: auto
                 }
             }
-        
-        /* ===== FINAL FULL-WIDTH LANDING HERO FIX ===== */
-        .content {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
 
-        .content > .page.active:not(#page-home) {
-            width: calc(100% - 48px);
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #page-home.active {
-            width: 100% !important;
-            max-width: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        #page-home .landing-hero {
-            position: relative;
-            width: 100% !important;
-            max-width: none !important;
-            min-height: clamp(430px, 42vw, 700px);
-            height: auto;
-            margin: 0 0 28px !important;
-            padding: clamp(28px, 5vw, 72px);
-            border-radius: 0 !important;
-            overflow: hidden;
-            background-size: cover !important;
-            background-position: center 68% !important;
-            background-repeat: no-repeat !important;
-        }
-
-        #page-home > .landing-section,
-        #page-home > .admin-strip {
-            width: calc(100% - 48px);
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 768px) {
-            .content > .page.active:not(#page-home) {
-                width: calc(100% - 24px);
+            /* ===== FINAL FULL-WIDTH LANDING HERO FIX ===== */
+            .content {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
-            #page-home .landing-hero {
+            .content>.page.active:not(#page-dashboard) {
+                width: calc(100% - 48px);
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #page-dashboard.active {
                 width: 100% !important;
-                min-height: 390px;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                padding: 30px 18px;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            #page-dashboard .landing-hero {
+                position: relative;
+                width: 100% !important;
+                max-width: none !important;
+                min-height: clamp(430px, 42vw, 700px);
+                height: auto;
+                margin: 0 0 28px !important;
+                padding: clamp(28px, 5vw, 72px);
                 border-radius: 0 !important;
-                background-position: center center !important;
+                overflow: hidden;
+                background-size: cover !important;
+                background-position: center 68% !important;
+                background-repeat: no-repeat !important;
             }
 
-            #page-home > .landing-section,
-            #page-home > .admin-strip {
-                width: calc(100% - 24px);
+            #page-dashboard>.landing-section,
+            #page-dashboard>.admin-strip {
+                width: calc(100% - 48px);
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
             }
-        }
 
-        @media (max-width: 480px) {
-            #page-home .landing-hero {
-                min-height: 360px;
-                padding: 26px 16px;
+            @media (max-width: 768px) {
+                .content>.page.active:not(#page-dashboard) {
+                    width: calc(100% - 24px);
+                }
+
+                #page-dashboard .landing-hero {
+                    width: 100% !important;
+                    min-height: 390px;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    padding: 30px 18px;
+                    border-radius: 0 !important;
+                    background-position: center center !important;
+                }
+
+                #page-dashboard>.landing-section,
+                #page-dashboard>.admin-strip {
+                    width: calc(100% - 24px);
+                }
             }
-        }
 
-    </style>
+            @media (max-width: 480px) {
+                #page-dashboard .landing-hero {
+                    min-height: 360px;
+                    padding: 26px 16px;
+                }
+            }
+        </style>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var section = document.getElementById('complaintsHandlingSection');
