@@ -5444,6 +5444,22 @@ on conflict (id) do update set role = 'admin';
             padding-bottom: 15px !important;
             min-height: 0 !important;
         }
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .app,
+        .content,
+        .page,
+        main {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
+            /* or hidden kung unsupported */
+        }
     </style>
 </head>
 
@@ -10278,18 +10294,15 @@ on conflict (id) do update set role = 'admin';
              * Floating accessibility, credits, and scroll controls stay fixed
              * in size and position while the page text is adjusted.
              */
-            body.access-text-small :where(.app, .gwt-footer, .custom-govph-footer)
-            :where(p, a, li, span, label, input, select, textarea, button) {
+            body.access-text-small :where(.app, .gwt-footer, .custom-govph-footer) :where(p, a, li, span, label, input, select, textarea, button) {
                 font-size: 90% !important;
             }
 
-            body.access-text-large :where(.app, .gwt-footer, .custom-govph-footer)
-            :where(p, a, li, span, label, input, select, textarea, button) {
+            body.access-text-large :where(.app, .gwt-footer, .custom-govph-footer) :where(p, a, li, span, label, input, select, textarea, button) {
                 font-size: 110% !important;
             }
 
-            body.access-text-xlarge :where(.app, .gwt-footer, .custom-govph-footer)
-            :where(p, a, li, span, label, input, select, textarea, button) {
+            body.access-text-xlarge :where(.app, .gwt-footer, .custom-govph-footer) :where(p, a, li, span, label, input, select, textarea, button) {
                 font-size: 120% !important;
             }
 
