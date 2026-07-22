@@ -3125,10 +3125,11 @@ on conflict (id) do update set role = 'admin';
 
         .highlight-gallery-cover {
             background-image:
-                linear-gradient(rgba(26, 86, 219, .10), rgba(26, 86, 219, .10)),
-                url("https://calbayog.gov.ph/wp-content/uploads/2025/10/HR-LOGO.jpg");
+                linear-gradient(rgba(255, 255, 255, .08), rgba(26, 86, 219, .12)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='450' viewBox='0 0 900 450'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23edf5ff'/%3E%3Cstop offset='1' stop-color='%23cfe1ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='450' fill='url(%23bg)'/%3E%3Crect x='180' y='105' width='540' height='270' rx='28' fill='%23ffffff' stroke='%231a56db' stroke-width='12'/%3E%3Crect x='225' y='70' width='330' height='230' rx='24' fill='%23dbeafe' stroke='%233b82f6' stroke-width='10'/%3E%3Ccircle cx='305' cy='145' r='30' fill='%2360a5fa'/%3E%3Cpath d='M250 265l85-78 65 58 55-48 65 68z' fill='%231a56db'/%3E%3Crect x='390' y='150' width='275' height='175' rx='20' fill='%23eff6ff' stroke='%231e3a8a' stroke-width='10'/%3E%3Ccircle cx='455' cy='205' r='24' fill='%2393c5fd'/%3E%3Cpath d='M420 285l65-58 48 42 38-34 55 50z' fill='%232563eb'/%3E%3Ctext x='450' y='415' text-anchor='middle' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='%231e3a8a'%3EPHOTO GALLERY%3C/text%3E%3C/svg%3E");
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         @media (max-width: 600px) {
@@ -5891,7 +5892,7 @@ on conflict (id) do update set role = 'admin';
                                         Policy</a></li>
                                 <li><a href="#" onclick="showPage('pms-calendar')">Calendar of Reports</a></li>
                                 <li><a href="#" onclick="showPage('pms-forms')">Forms</a></li>
-                                <li><a href="javascript:void(0)" onclick="openEventsModal('activities')">Activities</a>
+                                <li><a href="#" onclick="showPage('pms-activities'); return false;">Activities</a>
                                 </li>
                                 <li><a href="javascript:void(0)" onclick="openModal('galleryModal')">Photos</a></li>
                             </ul>
@@ -7239,27 +7240,53 @@ on conflict (id) do update set role = 'admin';
                     <h1>PMS Forms</h1>
                     <p>IPCR, OPCR, and performance management forms will be available here.</p>
                 </div>
-                <div class="empty-state">
-                    <i class="ti ti-forms"></i>
-                    <strong>PMS Forms Placeholder</strong>
-                    <span>This page is ready. Replace this placeholder with the actual content, forms, table, or
-                        download
-                        links.</span>
+                <div class="downloads-list">
+                    <ul>
+                        <li>
+                            <a href="https://docs.google.com/spreadsheets/d/1tQlRy7PHM8luRHT8ZJswgYfXkvzMvEEP/edit?usp=sharing&ouid=103109181341435030757&rtpof=true&sd=true"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="ti ti-file-description"></i>
+                                <span>IPCR</span>
+                                <i class="ti ti-download download-arrow"></i>
+                            </a>
+                        </li>
+                        <li><a href="files/Form_2.pdf" download><i class="ti ti-file-description"></i><span>Form
+                                    2</span><i class="ti ti-download download-arrow"></i></a></li>
+                        <li><a href="files/Form_3.pdf" download><i class="ti ti-file-description"></i><span>Form
+                                    3</span><i class="ti ti-download download-arrow"></i></a></li>
+                        <li><a href="files/Form_4.pdf" download><i class="ti ti-file-certificate"></i><span>Form
+                                    4</span><i class="ti ti-download download-arrow"></i></a></li>
+                        <li><a href="files/Form_5.pdf" download><i class="ti ti-file-description"></i><span>Form
+                                    5</span><i class="ti ti-download download-arrow"></i></a></li>
+                        <li><a href="files/Form_6.pdf" download><i class="ti ti-file-description"></i><span>Form
+                                    6</span><i class="ti ti-download download-arrow"></i></a></li>
+                        <li><a href="files/Form_7.pdf" download><i class="ti ti-file-description"></i><span>Form
+                                    7</span><i class="ti ti-download download-arrow"></i></a></li>
+                        <li><a href="files/Form_8.pdf" download><i class="ti ti-file-certificate"></i><span>Form
+                                    8</span><i class="ti ti-download download-arrow"></i></a></li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- ==================== ACTIVITIES PLACEHOLDER ==================== -->
+            <!-- ==================== PMS ACTIVITIES / UPCOMING ACTIVITIES ==================== -->
             <div class="page" id="page-pms-activities">
                 <div class="page-hero">
                     <h1>Activities</h1>
-                    <p>PMS-related activities and documentation will be posted here.</p>
+                    <p>View upcoming Performance Management System activities, schedules, venues, and related memoranda.
+                    </p>
                 </div>
-                <div class="empty-state">
-                    <i class="ti ti-activity"></i>
-                    <strong>Activities Placeholder</strong>
-                    <span>This page is ready. Replace this placeholder with the actual content, forms, table, or
-                        download
-                        links.</span>
+
+                <div class="card">
+                    <div class="section-hd">
+                        <h2><i class="ti ti-calendar-event"></i> Upcoming Activities</h2>
+                    </div>
+                    <div id="pmsActivitiesList">
+                        <div class="empty-state">
+                            <i class="ti ti-loader-2"></i>
+                            <strong>Loading activities...</strong>
+                            <span>Please wait while the latest activity schedule is being loaded.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -7269,13 +7296,13 @@ on conflict (id) do update set role = 'admin';
                     <h1>Photos</h1>
                     <p>Performance management activity photos and documentation will be placed here.</p>
                 </div>
-                <div class="empty-state">
-                    <i class="ti ti-photo"></i>
-                    <strong>Photos Placeholder</strong>
-                    <span>This page is ready. Replace this placeholder with the actual content, forms, table, or
-                        download
-                        links.</span>
-                </div>
+                <article class="news-card" onclick="openModal('galleryModal')">
+                    <div id="highlightGalleryCover" class="news-thumb highlight-cover highlight-gallery-cover"
+                        aria-label="Latest gallery photo"></div>
+                    <div class="news-body">
+                        <h3>Photo Gallery</h3>
+                    </div>
+                </article>
             </div>
 
             <!-- ==================== PRIME HRM BRONZE AWARD PLACEHOLDER ==================== -->
@@ -8517,6 +8544,38 @@ on conflict (id) do update set role = 'admin';
             }).join('');
         }
 
+        function renderPmsActivitiesPage() {
+            const panel = document.getElementById('pmsActivitiesList');
+            if (!panel) return;
+
+            if (!upcomingEvents.length) {
+                panel.innerHTML = cardEmpty(
+                    'No upcoming activities available',
+                    'New PMS activities will automatically appear here once posted by the administrator.',
+                    'ti-calendar-event'
+                );
+                return;
+            }
+
+            const sorted = [...upcomingEvents].sort((a, b) => new Date(a.date) - new Date(b.date));
+            panel.innerHTML = `<div class="events-list-panel" style="padding:0;border:0;box-shadow:none;background:transparent;">
+                ${sorted.map(e => {
+                const dt = new Date(e.date + 'T00:00:00');
+                const mon = dt.toLocaleDateString('en-PH', { month: 'short' });
+                const day = dt.getDate();
+                const fullDate = dt.toLocaleDateString('en-PH', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+                return `<div class="event-item">
+                        <div class="event-date-badge"><span class="em">${mon}</span><span class="ed">${day}</span></div>
+                        <div class="event-item-body">
+                            <div class="et">${e.title}</div>
+                            <div class="es">${fullDate}${e.sub ? ` &bull; ${e.sub}` : ''}</div>
+                        </div>
+                        ${e.memo ? `<a href="${e.memo}" target="_blank" rel="noopener" class="btn btn-outline btn-sm memo-link" style="flex-shrink:0;display:flex;align-items:center;gap:4px;padding:6px 10px;font-size:11px;text-decoration:none;"><i class="ti ti-file-text"></i> Memo</a>` : ''}
+                    </div>`;
+            }).join('')}
+            </div>`;
+        }
+
         function initEventsModal(mode = 'upcoming') {
             eventsModalMode = mode;
             miniCalDate = new Date();
@@ -8598,6 +8657,7 @@ on conflict (id) do update set role = 'admin';
             if (page === 'payroll' && typeof renderPayroll === 'function') renderPayroll();
             if ((page === 'recruitment' || page === 'vacancies') && typeof renderRecruitment === 'function') renderRecruitment();
             if (page === 'csc' && typeof renderCSC === 'function') renderCSC();
+            if (page === 'pms-activities' && typeof renderPmsActivitiesPage === 'function') renderPmsActivitiesPage();
 
             const notifPanel = document.getElementById('notifPanel');
             if (notifPanel) notifPanel.classList.remove('open');
@@ -9732,7 +9792,7 @@ on conflict (id) do update set role = 'admin';
         }
 
         async function loadPublicEvents() {
-            if (!CMS_CONFIGURED) { upcomingEvents = []; renderMiniCal(); renderEventsListPanel(); return; }
+            if (!CMS_CONFIGURED) { upcomingEvents = []; renderMiniCal(); renderEventsListPanel(); renderPmsActivitiesPage(); return; }
             const { data, error } = await supabaseClient.from('events').select('*').eq('status', 'published').order('event_date', { ascending: true }).order('start_time', { ascending: true });
             if (error) { console.error(error); upcomingEvents = []; return; }
             upcomingEvents = (data || []).map(e => ({
@@ -9740,7 +9800,7 @@ on conflict (id) do update set role = 'admin';
                 sub: [e.start_time ? cmsTimeLabel(e.start_time) + (e.end_time ? ` – ${cmsTimeLabel(e.end_time)}` : '') : 'All-day', e.location].filter(Boolean).join(' · '),
                 memo: e.facebook_url || '', description: e.description || ''
             }));
-            renderMiniCal(); renderEventsListPanel();
+            renderMiniCal(); renderEventsListPanel(); renderPmsActivitiesPage();
         }
 
         async function saveCmsEvent() {
@@ -10184,14 +10244,11 @@ on conflict (id) do update set role = 'admin';
 
             const albums = groupGalleryAlbums(cmsGalleryCache);
 
-            const highlightCover = document.getElementById('highlightGalleryCover');
-            const latestGalleryImage = albums[0]?.photos?.[0]?.image_url || '';
-            if (highlightCover && latestGalleryImage) {
-                highlightCover.style.backgroundImage =
-                    `linear-gradient(rgba(26,86,219,.08), rgba(26,86,219,.16)), url("${latestGalleryImage.replace(/"/g, '%22')}")`;
-                highlightCover.style.backgroundSize = 'cover';
-                highlightCover.style.backgroundPosition = 'center';
-            }
+            // Keep the Photo Gallery card cover as the default gallery icon at all times.
+            // Uploaded photos are displayed only inside the gallery albums/grid.
+            document.querySelectorAll('.highlight-gallery-cover').forEach(highlightCover => {
+                highlightCover.removeAttribute('style');
+            });
 
             grid.innerHTML = albums.map(album => `
           <article class="public-album-card" onclick="openGalleryAlbum('${encodeURIComponent(album.key)}')">
